@@ -1,0 +1,4 @@
+#!/bin/bash
+# filepath: /home/njange/Projects/alx-system_engineering-devops/0x0B-ssh/0-use_a_private_key
+
+ssh -i ~/.ssh/school ubuntu@8.8.8.8
