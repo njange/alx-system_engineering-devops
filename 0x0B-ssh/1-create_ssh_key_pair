@@ -1,0 +1,4 @@
+#!/bin/bash
+# filepath: /home/njange/Projects/alx-system_engineering-devops/0x0B-ssh/1-create_ssh_key_pair
+
+ssh-keygen -t rsa -b 4096 -f school -N "betty"
