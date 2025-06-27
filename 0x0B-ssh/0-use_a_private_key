@@ -1,4 +1,4 @@
-#!/bin/bash
-# filepath: /home/njange/Projects/alx-system_engineering-devops/0x0B-ssh/0-use_a_private_key
+#!/usr/bin/env bash
+# Connects to the server using SSH and the private key ~/.ssh/school
 
-ssh -i ~/.ssh/school ubuntu@8.8.8.8
+ssh -i ~/.ssh/school 29554d7eb831@29554d7eb831.6ad0eb84.alx-cod.online
