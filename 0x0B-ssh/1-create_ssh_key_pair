@@ -1,4 +1,4 @@
-#!/bin/bash
-# filepath: /home/njange/Projects/alx-system_engineering-devops/0x0B-ssh/1-create_ssh_key_pair
+#!/usr/bin/env bash
+# Generates an RSA key pair with a 4096-bit key size and passphrase 'betty'
 
 ssh-keygen -t rsa -b 4096 -f school -N "betty"

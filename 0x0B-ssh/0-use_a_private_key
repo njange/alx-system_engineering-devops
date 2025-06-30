@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 # Connects to the server using SSH and the private key ~/.ssh/school
 
-ssh -o IdentityFile=~/.ssh/school 29554d7eb831@29554d7eb831.6ad0eb84.alx-cod.online
+ssh -o IdentityFile=~/.ssh/school ubuntu@29554d7eb831.6ad0eb84.alx-cod.online
