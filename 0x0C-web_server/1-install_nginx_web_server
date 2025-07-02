@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# filepath: /home/njange/Projects/alx-system_engineering-devops/0x0C-web_server/1-install_nginx_web_server
+# Script that installs and configures nginx web server
+
+# Update package list
+apt-get update -y
+
+# Install nginx
+apt-get install nginx -y
+
+# Create custom index.html with "Hello World!" content
+echo "Hello World!" > /var/www/html/index.html
+
+# Ensure nginx is configured to listen on port 80 (default configuration should already do this)
+# Start nginx service
+service nginx
