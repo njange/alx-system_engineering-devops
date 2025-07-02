@@ -13,4 +13,4 @@ echo "Hello World!" > /var/www/html/index.html
 
 # Ensure nginx is configured to listen on port 80 (default configuration should already do this)
 # Start nginx service
-service nginx
+service nginx start
