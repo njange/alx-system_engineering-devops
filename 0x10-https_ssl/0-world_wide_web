@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Script to audit DNS subdomains using dig
+
+get_dns_info() {
+    local domain=$1
+    local sub=$2
+    result=$(dig ${sub}.${domain} +short | awk '{print}')
+    if [[ -n "$result" ]]; then
+        echo "The subdomain ${sub} is a A record and points to ${result}"
+    else
+        echo "The subdomain ${sub} does not exist or has no A record"
+    fi
+}
+
+if [[ $# -eq 1 ]]; then
+    domain=$1
+    for sub in www lb-01 web-01 web-02; do
+        get_dns_info $domain $sub
+    done
+elif [[ $# -eq 2 ]]; then
+    get_dns_info $1 $2
+else
+    echo "Usage: $0 <domain> [subdomain]"
+    exit 1
+fi
