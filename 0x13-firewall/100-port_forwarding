@@ -1,0 +1,41 @@
+# /etc/ufw/before.rules
+# rules before ufw command line added rules
+# used to setup port redirection (8080 -> 80)
+
+*nat
+:PREROUTING ACCEPT [0:0]
+
+# Redirect port 8080 to port 80
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+
+COMMIT
+
+*filter
+:ufw-before-input - [0:0]
+:ufw-before-output - [0:0]
+:ufw-before-forward - [0:0]
+:ufw-not-local - [0:0]
+# End required lines
+
+-A ufw-before-input -i lo -j ACCEPT
+-A ufw-before-input -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+# Allow ping
+-A ufw-before-input -p icmp --icmp-type echo-request -j ACCEPT
+
+# Allow DHCP
+-A ufw-before-input -p udp --sport 67 --dport 68 -j ACCEPT
+
+# Drop traffic to 0.0.0.0/8
+-A ufw-before-input -d 0.0.0.0/8 -j DROP
+
+# Drop traffic to 224.0.0.0/4
+-A ufw-before-input -d 224.0.0.0/4 -j DROP
+
+# Drop traffic to loopback not using lo0
+-A ufw-before-input ! -i lo -d 127.0.0.0/8 -j DROP
+
+-A ufw-before-input -j ufw-not-local
+
+# Don't delete these required lines
+-A ufw-before-input -j DROP
+-A ufw-before-forward -j DROP
